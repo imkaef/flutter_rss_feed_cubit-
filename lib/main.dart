@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rss_cubit/pages/last_new_page/last_news_page.dart';
+import 'package:rss_cubit/pages/main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,13 +25,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text('haha'),
-        ),
-        body: const LastNewsPage(),
-      ),
+      home: const MainPageWidget()
     );
   }
 }

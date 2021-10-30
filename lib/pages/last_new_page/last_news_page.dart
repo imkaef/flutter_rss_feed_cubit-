@@ -54,9 +54,15 @@ Widget newsBuilder(BuildContext context, NewsLoadedState state) {
     itemBuilder: (context, index) {
       final item = state.news[index];
       return ListTile(
-        leading: ImageNewsWidget(
-          imageUrl: item.enclosure!.url!,
-        ),
+        leading: item.enclosure != null
+            ? ImageNewsWidget(
+                imageUrl: item.enclosure!.url!,
+              )
+            : Image.asset(
+                'assets/noimage.png',
+                height: 50,
+                width: 80,
+              ),
         title: Text(
           item.title!,
           maxLines: 5,
