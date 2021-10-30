@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rss_cubit/pages/news24_page/news24_page.dart';
+import 'package:rss_cubit/pages/all_news_page/all_news_page.dart';
 
-import 'last_new_page/last_news_page.dart';
+import 'footbal_new_page/news_footbal_page.dart';
 
 class MainPageWidget extends StatefulWidget {
   const MainPageWidget({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
     // ignore: todo
     // TODO: implement initState
     super.initState();
-   // _selectedTab = 0;
+    // _selectedTab = 0;
   }
 
   @override
@@ -37,8 +37,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
       ),
       body: IndexedStack(
         children: const [
-          LastNewsPage(),
-          News24(),
+          BaseNewsFootbalPage(),
+          AllNewsPage(),
         ],
         index: _selectedTab,
       ),
@@ -46,7 +46,8 @@ class _MainPageWidgetState extends State<MainPageWidget> {
         onTap: _onSelectTab,
         currentIndex: _selectedTab,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.bubble_chart_outlined), label: 'footbal'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.bubble_chart_outlined), label: 'footbal'),
           BottomNavigationBarItem(
               icon: Icon(Icons.next_week_outlined), label: 'allnews'),
         ],
