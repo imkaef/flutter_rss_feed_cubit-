@@ -8,7 +8,7 @@ abstract class SportRssApi {
   Future<List<RssItem>> getNews();
 }
 
-class SportFootbalNewsProvider extends SportRssApi {
+class FootbalNewsProvider extends SportRssApi {
   final _lastNews = 'football.rss';
   @override
   Future<List<RssItem>> getNews() async {
@@ -25,7 +25,7 @@ class SportFootbalNewsProvider extends SportRssApi {
   }
 }
 
-class SportLast24NewsProvider extends SportRssApi {
+class AllNewsProvider extends SportRssApi {
   final _lastNews = 'news.rss';
   @override
   Future<List<RssItem>> getNews() async {

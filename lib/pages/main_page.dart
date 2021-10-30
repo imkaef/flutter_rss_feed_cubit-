@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rss_cubit/pages/all_news_page/all_news_page.dart';
-
-import 'footbal_new_page/news_footbal_page.dart';
+import 'package:rss_cubit/api/news_api.dart';
+import 'package:rss_cubit/pages/all_news_page.dart';
+import 'package:rss_cubit/pages/football_news_page.dart';
 
 class MainPageWidget extends StatefulWidget {
   const MainPageWidget({Key? key}) : super(key: key);
@@ -36,9 +36,13 @@ class _MainPageWidgetState extends State<MainPageWidget> {
         title: const Text('Sports.ru Feeds'),
       ),
       body: IndexedStack(
-        children: const [
-          BaseNewsFootbalPage(),
-          AllNewsPage(),
+        children: [
+          FootballNewsPage(
+            newsProvider: FootbalNewsProvider(),
+          ),
+          AllNewsPage(
+            newsProvider: AllNewsProvider(),
+          )
         ],
         index: _selectedTab,
       ),

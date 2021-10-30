@@ -3,10 +3,10 @@ import 'package:dart_rss/dart_rss.dart';
 import 'package:meta/meta.dart';
 import 'package:rss_cubit/api/news_api.dart';
 
-part 'news_footbal_state.dart';
+part 'news_state.dart';
 
-class NewsFootbalCubit extends Cubit<NewsFootbalState> {
-  NewsFootbalCubit(this._newsProvider) : super(NewsFootbalInitial());
+class NewsCubit extends Cubit<NewsState> {
+  NewsCubit(this._newsProvider) : super(NewsInitial());
 
   final SportRssApi _newsProvider;
   
@@ -15,11 +15,11 @@ class NewsFootbalCubit extends Cubit<NewsFootbalState> {
       await Future.delayed(const Duration(seconds: 3));
       emit(NewsLoadedState(await _newsProvider.getNews()));
     } on RssNewsException {
-      emit(NewsFootbalErroeState('Sorry we cant download football news'));
+      emit(NewsErrorState('Sorry we cant download news'));
     }
   }
 
   Future<void> reloadNews() async {
-    emit(NewsFootbalInitial());
+    emit(NewsInitial());
   }
 }
